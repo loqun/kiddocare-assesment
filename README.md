@@ -2,6 +2,16 @@
 
 A simple web application for on-demand babysitter booking services.
 
+## Features
+- Reservation form for babysitter booking
+- Summary page to review booking details
+- Confirmation page with booking reference
+- Got comprehensive feature test on the system
+
+## Tech Stack
+- Frontend: Vue 3 with TypeScript
+- Backend: Laravel
+
 
 ### Setup Steps
 
@@ -53,11 +63,4 @@ Before that make a .env file from .env.example by copy or renaming .env.example
 
    ```
 
-## Features
-- Reservation form for babysitter booking
-- Summary page to review booking details
-- Confirmation page with booking reference
 
-## Tech Stack
-- Frontend: Vue 3 with TypeScript
-- Backend: Laravel
