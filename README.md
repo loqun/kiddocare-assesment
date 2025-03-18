@@ -14,10 +14,7 @@ A simple web application for on-demand babysitter booking services.
 ### Setup Steps
 
 1. **Clone the repository**
-   ```
-   git clone https://github.com/yourusername/babysitter-booking.git
-   cd babysitter-booking
-   ```
+
 
 2. **Backend Setup**
    ```
