@@ -37,10 +37,6 @@ A simple web application for on-demand babysitter booking services.
     herd link 
     herd open
 
-    # for running the frontend app can use
-     npm run dev 
-
-
    ```
 
 2. **Frontend Setup**
