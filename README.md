@@ -43,6 +43,17 @@ A simple web application for on-demand babysitter booking services.
 
    ```
 
+2. **Frontend Setup**
+   ```
+
+    # for running the frontend app can use dev server 
+     npm run dev 
+
+    # or you can build the assets
+     npm run build
+
+   ```
+
 ## Features
 - Reservation form for babysitter booking
 - Summary page to review booking details
