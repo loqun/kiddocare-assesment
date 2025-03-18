@@ -6,7 +6,7 @@ A simple web application for on-demand babysitter booking services.
 - Reservation form for babysitter booking
 - Summary page to review booking details
 - Confirmation page with booking reference
-- Got comprehensive feature test on the system
+- Got comprehensive feature testing on the system using PEST
 
 ## Tech Stack
 - Frontend: Vue 3 with TypeScript
