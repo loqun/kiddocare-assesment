@@ -2,21 +2,19 @@
 
 A simple web application for on-demand babysitter booking services.
 
-## Project Setup
-
-### Prerequisites
-- PHP 8.1+
-- Composer
-- Node.js 16+
-- npm
-- MySQL or SQLite
 
 ### Setup Steps
 
-1. **Clone the repository**
+1. **Create Env File**
+
+Before that make a .env file from .env.example by copy or renaming .env.example
+
+2. **Clone the repository**
 
 
-2. **Backend Setup**
+
+
+3. **Backend Setup**
    ```
    # Install PHP dependencies
    composer install
@@ -36,7 +34,7 @@ A simple web application for on-demand babysitter booking services.
 
    ```
 
-2. **Frontend Setup**
+4. **Frontend Setup**
    ```
     # install node modules
        npm install
