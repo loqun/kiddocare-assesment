@@ -45,6 +45,14 @@ Before that make a .env file from .env.example by copy or renaming .env.example
 
    ```
 
+5. **Run the test**
+   ```
+    #after you build the frontend or start frontend dev server and setup the backend can try run the test; shpuld be no error
+    php artisan test
+    
+
+   ```
+
 ## Features
 - Reservation form for babysitter booking
 - Summary page to review booking details
