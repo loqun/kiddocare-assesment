@@ -164,7 +164,7 @@ test('booking fails with child exceed age limit', function () {
     $jsonResponse = $response->json();
 
     // dd($jsonResponse, $data);
-    $this->assertEquals("The childAge.{$childId} field must not be greater than 12.", $jsonResponse['errors']["childAge.{$childId}"][0]);
+    $this->assertEquals("The child age cannot be greater than 12.", $jsonResponse['errors']["childAge.{$childId}"][0]);
 
 
 });
