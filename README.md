@@ -19,7 +19,7 @@ A simple web application for on-demand babysitter booking services.
 
 2. **Create Env File**
 
-Before that make a .env file from .env.example by copy or renaming .env.example
+   Before that make a .env file from .env.example by copy or renaming .env.example to.env
 
 
 3. **Backend Setup**
