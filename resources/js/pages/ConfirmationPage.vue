@@ -68,18 +68,17 @@
 
 <script setup lang="ts">
 import LoginComponent from '@/components/LoginComponent.vue';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted , defineProps, PropType} from 'vue';
 import { Booking } from '@/types';
-import { defineProps, PropType } from 'vue';
 
 // Props
 const props = defineProps({
     booking: {
         type: Object,
-        required: true,
+        required: false,
     },
     allBookings: {
-        type: Array as PropType<Booking[]>, // Specify `allBookings` as an array of `Booking`
+        type: Object as PropType<Booking[]>, // Specify `allBookings` as an array of `Booking`
             required: true,
     },
     submitForm: {
@@ -96,7 +95,6 @@ const formattedTime = (datetime:string) => {
 const isSubmitForm = computed(() => props.submitForm);
 
 onMounted(() => {
-    console.log(props.booking, props.allBookings);
 });
 </script>
 
