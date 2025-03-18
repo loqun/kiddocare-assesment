@@ -83,6 +83,8 @@ class BookingRequest extends FormRequest
             'reservation_date.before_or_equal' => 'Reservation must be within 30 days from today.',
             'childName.max' => 'Maximum 4 children are allowed.',
             'childName.min' => 'At least one child must be added.',
+            'childAge.*.min' => 'The child age cannot be less than 0.',
+            'childAge.*.max' => 'The child age cannot be greater than 12.',
         ];
     }
 

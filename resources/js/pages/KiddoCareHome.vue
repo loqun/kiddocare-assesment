@@ -122,7 +122,7 @@
                                     :name="`childAge[${child.id}]`"
                                     v-model="child.year"
                                     min="0"
-                                    max="12"
+                                    max="99"
                                     required
                                     class="w-full rounded-md border border-input px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-ring"
                                 />
@@ -274,7 +274,7 @@ const isFormValid = computed(() => {
 
     // Check if all children have names and valid ages
     for (const child of children.value) {
-        if (!child.name || child.year > 12 || (child.year == 0 && child.month < 1)) return false;
+        if (!child.name  || (child.year == 0 && child.month < 1)) return false;
     }
 
     return true;

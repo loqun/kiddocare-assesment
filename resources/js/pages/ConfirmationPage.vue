@@ -66,7 +66,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import LoginComponent from '@/components/LoginComponent.vue';
 import { computed, onMounted } from 'vue';
 
