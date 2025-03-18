@@ -41,6 +41,8 @@ A simple web application for on-demand babysitter booking services.
 
 2. **Frontend Setup**
    ```
+    # install node modules
+       npm install
 
     # for running the frontend app can use dev server 
      npm run dev 
