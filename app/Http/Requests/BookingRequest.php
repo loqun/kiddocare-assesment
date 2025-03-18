@@ -24,7 +24,6 @@ class BookingRequest extends FormRequest
     public function rules(): array
     {
 
-        return [];
 
         // dd(request()->all(),$this->childName);
         $now = Carbon::now();

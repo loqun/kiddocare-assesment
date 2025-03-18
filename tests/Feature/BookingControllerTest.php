@@ -4,6 +4,9 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Testing\Fluent\AssertableJson;
 
+uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+
+
 beforeEach(function () {
     $this->now = Carbon::now();
     Carbon::setTestNow($this->now);

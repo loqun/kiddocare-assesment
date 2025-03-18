@@ -22,7 +22,7 @@
                 <h3 class="mb-3 text-xl font-medium">Children Information</h3>
                 <ul class="space-y-2">
                     <li v-for="(child, index) in props.children" :key="index" class="rounded-md text-black bg-gray-100 p-3">
-                        <span class="font-semibold">{{ child.name }}</span> ({{ child.year }} years old)
+                        <span class="font-semibold">{{ child.name }}</span> ({{ child.year }} years {{ child.month }} month)
                     </li>
                 </ul>
             </div>
@@ -39,6 +39,7 @@
 </template>
 
 <script lang="ts" setup>
+import LoginComponent from '@/components/LoginComponent.vue';
 import { SummaryPageProps } from '@/types';
 import { computed } from 'vue';
 

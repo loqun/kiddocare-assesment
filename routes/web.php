@@ -9,7 +9,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
+    return to_route('get-kiddocare-home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 

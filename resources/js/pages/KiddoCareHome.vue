@@ -1,5 +1,7 @@
 <template>
+
     <div class="mx-auto max-w-3xl p-4 font-sans">
+        <LoginComponent></LoginComponent>
         <h1 class="mb-6 text-center text-2xl font-bold">Reservation Form</h1>
 
         <Summary
@@ -23,12 +25,15 @@
                     id="reservationDateTime"
                     v-model="reservationDateTime"
                     name="reservation_date"
+                    :min="minDateTime"
+                    :max="maxDateTime"
                     required
                     class="w-full rounded-md border border-input px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-ring"
                 />
+
+                <span class="text-sm text-muted-foreground">Must be at least 6 hours from now and within 30 days from today.  </span>
                 <span class="validity"></span>
 
-                <p class="text-sm text-muted-foreground">Must be at least 6 hours from now and within 30 days from today.</p>
             </div>
 
             <div class="rounded-lg border border-border bg-card p-4">
@@ -116,7 +121,7 @@
                                     :id="`childAge${child.id}`"
                                     :name="`childAge[${child.id}]`"
                                     v-model="child.year"
-                                    min="1"
+                                    min="0"
                                     max="12"
                                     required
                                     class="w-full rounded-md border border-input px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-ring"
@@ -196,6 +201,8 @@ import axios from 'axios';
 import { DateTime } from 'luxon';
 import { computed, ref } from 'vue';
 import Summary from './Summary.vue';
+import {  Link } from '@inertiajs/vue3';
+import LoginComponent from '@/components/LoginComponent.vue';
 
 const minDateTime = computed(() => {
     const minDate = new Date();
@@ -267,7 +274,7 @@ const isFormValid = computed(() => {
 
     // Check if all children have names and valid ages
     for (const child of children.value) {
-        if (!child.name || child.year < 1 || child.year > 12) return false;
+        if (!child.name || child.year > 12 || (child.year == 0 && child.month < 1)) return false;
     }
 
     return true;
@@ -325,16 +332,16 @@ const submitForm = () => {
 };
 
 // Reset form for new submission
-const resetForm = () => {
-    reservationDateTime.value = '';
-    address.value = '';
-    city.value = '';
-    state.value = '';
-    zipCode.value = '';
-    children.value = [];
-    formSubmitted.value = false;
-    formError.value = '';
-};
+// const resetForm = () => {
+//     reservationDateTime.value = '';
+//     address.value = '';
+//     city.value = '';
+//     state.value = '';
+//     zipCode.value = '';
+//     children.value = [];
+//     formSubmitted.value = false;
+//     formError.value = '';
+// };
 
 const handleBack = () => {
     showSummary.value = false;
@@ -360,28 +367,33 @@ const handleSummarySubmit = async () => {
 
             if (response) {
                 console.log('success');
-                console.log(response.data)
+                console.log(response.data);
                 //redirect to the page
+
+                // return
                 router.push({
                     url: '/confirmation-page',
                     component: 'ConfirmationPage',
-                    props: { data:'test' },
+                    props: { booking: response.data.result.booking, submitForm: true, allBookings: response.data.result.allBookings,                    errors: {} // Add errors here
+                  },
                     clearHistory: false,
                     encryptHistory: false,
                     preserveScroll: false,
                     preserveState: false,
+
                 });
             }
-        } catch (error) {
+        } catch (error: any) {
             if (error.status == 422) {
                 console.log(error);
 
                 showToast(error.response.data.message, 'error');
             } else if (error.status == 419) {
-                await showToast('Expired Session will reload ..');
+                await showToast('Expired Session will reload .', 'error');
                 window.location.reload();
+            } else {
+                await showToast('Internal Server', 'error');
             }
-            console.error(error);
         }
     }
 };
@@ -420,10 +432,15 @@ async function showToast(message: string, type: string) {
 input:invalid + span::after {
     content: 'X';
     padding-left: 5px;
+    color: red;
 }
 
 input:valid + span::after {
     content: '✓';
     padding-left: 5px;
+    color: green;
 }
+
+
+
 </style>

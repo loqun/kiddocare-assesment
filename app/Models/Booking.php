@@ -17,7 +17,9 @@ class Booking extends Model
         'street_address',
         'city',
         'state',
-        'zip_code'
+        'zip_code',
+        'session_id',
+        'user_id'
     ];
 
 
