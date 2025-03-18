@@ -5,13 +5,11 @@ A simple web application for on-demand babysitter booking services.
 
 ### Setup Steps
 
-1. **Create Env File**
+1. **Clone the repository**
+
+2. **Create Env File**
 
 Before that make a .env file from .env.example by copy or renaming .env.example
-
-2. **Clone the repository**
-
-
 
 
 3. **Backend Setup**
