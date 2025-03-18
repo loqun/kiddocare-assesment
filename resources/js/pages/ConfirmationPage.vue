@@ -69,6 +69,8 @@
 <script setup lang="ts">
 import LoginComponent from '@/components/LoginComponent.vue';
 import { computed, onMounted } from 'vue';
+import { Booking } from '@/types';
+import { defineProps, PropType } from 'vue';
 
 // Props
 const props = defineProps({
@@ -77,8 +79,8 @@ const props = defineProps({
         required: true,
     },
     allBookings: {
-        type: Array,
-        required: true,
+        type: Array as PropType<Booking[]>, // Specify `allBookings` as an array of `Booking`
+            required: true,
     },
     submitForm: {
         type: Boolean,
@@ -87,7 +89,7 @@ const props = defineProps({
 });
 
 // Computed Properties
-const formattedTime = (datetime) => {
+const formattedTime = (datetime:string) => {
     return new Date(datetime).toLocaleString();
 };
 

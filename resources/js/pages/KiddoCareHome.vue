@@ -122,7 +122,7 @@
                                     :name="`childAge[${child.id}]`"
                                     v-model="child.year"
                                     min="0"
-                                    max="99"
+                                    max="12"
                                     required
                                     class="w-full rounded-md border border-input px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-ring"
                                 />
@@ -205,7 +205,6 @@ import {  Link } from '@inertiajs/vue3';
 import LoginComponent from '@/components/LoginComponent.vue';
 
 const minDateTime = computed(() => {
-    const minDate = new Date();
 
     // Set the time to 6 hours ahead
 

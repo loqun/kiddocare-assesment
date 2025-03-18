@@ -41,7 +41,8 @@ export interface Child {
     id: number;
     name: string;
     year: number;
-    month:number
+    month: number;
+    age?:number;
 }
 
 export interface SummaryPageProps {
@@ -52,4 +53,18 @@ export interface SummaryPageProps {
     state: string;
     zipCode: string;
     children: Child[];
+}
+
+export type Booking = {
+    booking_no: string | number;
+    street_address: string;
+    city: string;
+    zip_code: string;
+    state: string;
+    reservation_datetime: string; // or Date type if it's a Date object
+    children: Child[];
+};
+
+export interface AllBookings {
+    allBookings: Booking[];
 }
